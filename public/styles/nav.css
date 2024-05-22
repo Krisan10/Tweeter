@@ -1,0 +1,35 @@
+nav {
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding: 0 1.5em;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space items apart */
+}
+
+.left {
+  margin-left: 1.5em;
+}
+
+.right {
+  margin-right: 1.5em;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.tweeterlogo {
+  font-family: 'Bungee', sans-serif; /* Apply Bungee font to tweeter logo */
+}
+
+.write-new-tweet {
+  font-family: sans-serif; /* Apply sans-serif font to write new tweet */
+  margin-bottom: 0.5em; /* Optional: adjust spacing between text and icon */
+}
+
+.fa-angles-down {
+  margin-top: 0.5em; /* Optional: adjust spacing between text and icon */
+}
