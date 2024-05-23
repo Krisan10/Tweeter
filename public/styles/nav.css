@@ -11,23 +11,24 @@ nav {
   position: fixed;
 }
 
-.left {
+/* Apply Bungee font to the span elements within the nav */
+nav span {
+  font-family: 'Bungee', sans-serif; /* Apply Bungee font to all span elements within nav */
+}
+
+.nav-title {
   margin-left: 1.5em;
 }
 
-.right {
+.tweeter-button {
   margin-right: 1.5em;
   display: flex;
   flex-direction: column; /* Stack children vertically */
   align-items: center; /* Center items horizontally */
 }
 
-.tweeterlogo {
-  font-family: 'Bungee', sans-serif; /* Apply Bungee font to tweeter logo */
-}
-
 .write-new-tweet {
-  font-family: sans-serif; /* Apply sans-serif font to write new tweet */
+  /* Font family is already applied through the span selector above */
   margin-bottom: 0.5em; /* Optional: adjust spacing between text and icon */
 }
 
