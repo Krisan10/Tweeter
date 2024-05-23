@@ -11,17 +11,12 @@ nav {
   position: fixed;
 }
 
-/* Apply Bungee font to the span elements within the nav */
 nav span {
-  font-family: 'Bungee', sans-serif; /* Apply Bungee font to all span elements within nav */
+  font-family: 'Bungee', sans-serif; 
 }
 
-.nav-title {
-  margin-left: 1.5em;
-}
 
 .tweeter-button {
-  margin-right: 1.5em;
   display: flex;
   flex-direction: column; /* Stack children vertically */
   align-items: center; /* Center items horizontally */
