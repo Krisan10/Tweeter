@@ -1,3 +1,5 @@
+/* public/styles/nav.css */
+
 nav {
   height: 120px;
   width: 100%;
@@ -11,19 +13,23 @@ nav {
   position: fixed;
 }
 
-nav span {
-  font-family: 'Bungee', sans-serif; 
+.nav-title {
+  margin-left: 1.5em;
 }
 
-
 .tweeter-button {
+  margin-right: 1.5em;
   display: flex;
   flex-direction: column; /* Stack children vertically */
   align-items: center; /* Center items horizontally */
 }
 
+.tweeterlogo {
+  font-family: 'Bungee', sans-serif; /* Apply Bungee font to tweeter logo */
+}
+
 .write-new-tweet {
-  /* Font family is already applied through the span selector above */
+  font-family: sans-serif; /* Apply sans-serif font to write new tweet */
   margin-bottom: 0.5em; /* Optional: adjust spacing between text and icon */
 }
 
