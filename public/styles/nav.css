@@ -8,6 +8,7 @@ nav {
   display: flex;
   align-items: center; /* Center items vertically */
   justify-content: space-between; /* Space items apart */
+  position: fixed;
 }
 
 .left {
