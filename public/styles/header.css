@@ -1,0 +1,20 @@
+header.profile-header {
+  background-color: #0d4200;
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
+  text-align: center;
+  padding: 2em;
+}
+
+.profile-background {
+  padding: 1em;
+}
+
+.profile-background img {
+  max-width: 100%;
+  height: auto;
+}
+
+.profile-name {
+  color: #ffffff; 
+}
+
