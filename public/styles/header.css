@@ -1,31 +1,30 @@
-/* public/styles/header.css */
-
 header.profile-header {
   background-color: #0d4200;
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
   text-align: center;
   padding-top: 120px;
-  height: 400px; /* Set the height of the header to 400px */
-  width: 100%; /* Set the width of the header to 100% of its parent container */
-  display: flex; /* Use flexbox */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  height: 400px; 
+  width: 100%; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
 }
 
 .profile-background {
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center items horizontally */
-  margin-top: 2em; /* Adjust spacing between the nav and profile background */
+  flex-direction: column; 
+  align-items: center;
+  margin-top: 2em; 
 }
 
 .profile-background img {
-  max-height: 200px; /* Set max-height to prevent squishing */
-  width: auto; /* Let the width adjust automatically */
+  max-height: 200px; 
+  width: auto; 
+  margin-bottom: -1em;
 }
 
 .profile-name {
   color: #ffffff;
-  margin-top: 1em; /* Adjust spacing between the avatar and the name */
+  margin-top: 1em; 
   padding-top: -100px;
 }
