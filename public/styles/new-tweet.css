@@ -1,0 +1,38 @@
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+
+.new-tweet div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5px;
+}
+
+form textarea {
+  width: 100%;
+  background-color: inherit;
+  outline: 0; 
+  border-width: 0 0 4px; 
+  border-color: #545149; 
+}
+
+.new-tweet button {
+  background-color: #1DA1F2; /* Twitter-like blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/*Add different colour when hovering over the tweet button*/
+.new-tweet button:hover {
+  background-color: #0d8bdb; /* Darker blue on hover */
+}
