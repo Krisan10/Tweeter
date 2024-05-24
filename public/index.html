@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
@@ -26,46 +26,69 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-  </head>
-
-  <body>
-    <!-- Top nav bar  -->
+</head>
+<body>
+    <!-- Top nav bar -->
     <nav>
-      <div class="nav-title">
-        <span class="tweeterlogo">tweeter</span>
-      </div>
-      <div class="tweeter-button">
-        <span class="write-new-tweet">Write a new tweet</span>
-        <i class="fa-solid fa-angles-down"></i>
-      </div>
+        <div class="nav-title">
+            <span class="tweeterlogo">tweeter</span>
+        </div>
+        <div class="tweeter-button">
+            <span class="write-new-tweet">Write a new tweet</span>
+            <i class="fa-solid fa-angles-down"></i>
+        </div>
     </nav>
 
-    <!--Profile-->
+    <!-- Profile -->
     <header class="profile-header">
-      <div class="profile-background">
-        <img src="/images/profile-hex.png" alt="Profile Picture">
-        <h2 class="profile-name">Your Name</h2>
-      </div>
+        <div class="profile-background">
+            <img src="/images/profile-hex.png" alt="Profile Picture">
+            <h2 class="profile-name">Your Name</h2>
+        </div>
     </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-     <!--New tweet--> 
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form action="/tweets/" method="post">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div>
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section> 
-      <section class="tweet-container">
-        <!-- Tweets will be placed here -->
-        <h2>Hello I'm bob</h2>
-    </section>     
+        <!-- New tweet --> 
+        <section class="new-tweet">
+            <h2>Compose Tweet</h2>
+            <form action="/tweets/" method="post">
+                <label for="tweet-text">What are you humming about?</label>
+                <textarea name="text" id="tweet-text"></textarea>
+                <div>
+                    <button type="submit">Tweet</button>
+                    <output name="counter" class="counter" for="tweet-text">140</output>
+                </div>
+            </form>
+        </section> 
+
+        <!-- Tweet container -->
+        <section class="tweet-container">
+            <!-- Individual tweet -->
+            <article class="tweet">
+                <!-- Tweet header -->
+                <header>
+                    <img src="/images/profile-picture.jpg" alt="Profile Picture">
+                    <h3>User Name</h3>
+                    <span class="username">@username</span>
+                </header>
+
+                <!-- Tweet content -->
+                <section class="tweet-content">
+                    <p>This is the content of the tweet.</p>
+                </section>
+
+                <!-- Tweet footer with icons -->
+                <footer>
+                    <div class="actions">
+                        <span><i class="fa-solid fa-flag"></i> Flag</span>
+                        <span><i class="fa-solid fa-arrows-retweet"></i> Retweet</span>
+                        <span><i class="fa-regular fa-heart"></i> Like</span>
+                    </div>
+                </footer>
+            </article>
+            <!-- End of individual tweet -->
+        </section>     
     </main>
-  </body>
+</body>
 </html>
