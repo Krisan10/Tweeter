@@ -23,3 +23,8 @@
   align-items: center;
 }
 
+.tweet footer .actions span:hover {
+  color: #4056A1; 
+}
+
+
