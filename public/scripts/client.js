@@ -29,7 +29,7 @@ const data = [
   }
 ]
 
-const createNewTweet = function(tweet) {
+const createTweetElement = function(tweet) {
   
   let $tweet = `<article>
     <header class="tweet">
