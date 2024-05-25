@@ -30,7 +30,6 @@ const data = [
 ]
 
 const createTweetElement = function(tweet) {
-  
   let $tweet = `<article>
     <header class="tweet">
       <img src=${tweet.user.avatars} >
@@ -52,11 +51,57 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
+const escape = function(str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
+const loadTweets = function() {
+  $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      success: function(tweets) {
+          renderTweets(tweets);
+      }
+  });
+};
+loadTweets();
+
+$('form').on('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  const tweetText = $('#tweet-text').val().trim();
+
+  // Basic validation
+  if (!tweetText) {
+      alert("Tweet cannot be empty!");
+      return;
+  }
+  if (tweetText.length > 140) {
+      alert("Tweet cannot exceed 140 characters!");
+      return;
+  }
+
+  // Post the tweet using AJAX
+  $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: $(this).serialize(),
+      success: function() {
+          loadTweets(); // Reload tweets after posting
+          $('#tweet-text').val(''); // Clear the text area
+          $('.counter').text(140); // Reset the character counter
+      }
+  });
+});
+
+
 
 const renderTweets = (tweets) => {
   // loops through tweets
   for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
-      $('.tweets-container').prepend($tweet);
+      $('.tweet-container').prepend($tweet);
   }
 };
