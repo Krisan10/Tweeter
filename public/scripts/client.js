@@ -51,60 +51,101 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
-const escape = function(str) {
-  let div = document.createElement("div");
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
-};
+$(document).ready(function() {
+  const createTweetElement = function(tweet) {
+      let $tweet = `<article class="tweet">
+          <header>
+              <img src="${tweet.user.avatars}" alt="Profile Picture" class="profile-picture">
+              <div>
+                  <h4 class="name">${tweet.user.name}</h4>
+                  <h4 class="handle">${tweet.user.handle}</h4>
+              </div>
+          </header>
+          <section class="tweet-text">
+              <p>${escape(tweet.content.text)}</p>
+          </section>
+          <footer>
+              <span class="timestamp">${timeago.format(tweet.created_at)}</span>
+              <div class="actions">
+                  <span><i class="fa-solid fa-flag"></i></span>
+                  <span><i class="fa-solid fa-retweet"></i></span>
+                  <span><i class="fa-regular fa-heart"></i></span>
+              </div>
+          </footer>
+      </article>`;
+      return $tweet;
+  };
 
-//checks if the tweet is submittable
-const isTweetValid = function(tweetText) {
-  const $errorContainer = $('.error-container');
-  $errorContainer.text('').slideUp();
-
-  if (!tweetText) {
-      $errorContainer.text("Tweet cannot be empty!").slideDown();
-      return false;
-  }
-  if (tweetText.length > 140) {
-      $errorContainer.text("Tweet cannot exceed 140 characters!").slideDown();
-      return false;
-  }
-  return true;
-};
-
-
-loadTweets(); // Initial load of tweets
-
-$('form').on('submit', function(event) {
-  event.preventDefault(); // Prevent the default form submission
-
-  const tweetText = $('#tweet-text').val().trim();
-  
-  // Validate the tweet before sending
-  if (!isTweetValid(tweetText)) {
-      return;
-  }
-
-  // Post the tweet using AJAX
-  $.ajax({
-      url: '/tweets',
-      method: 'POST',
-      data: $(this).serialize(),
-      success: function() {
-          loadTweets(); 
-          $('#tweet-text').val(''); 
-          $('.counter').text(140);
+  const renderTweets = function(tweets) {
+      $('.tweet-container').empty();
+      for (const tweet of tweets) {
+          const $tweet = createTweetElement(tweet);
+          $('.tweet-container').prepend($tweet);
       }
+  };
+
+  const escape = function(str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+  };
+
+  const loadTweets = function() {
+      $.ajax({
+          url: '/tweets',
+          method: 'GET',
+          success: function(tweets) {
+              renderTweets(tweets);
+          }
+      });
+  };
+
+  const displayErrorMessage = function(message) {
+      const $errorContainer = $('.error-container');
+      $errorContainer.text(message).slideDown();
+  };
+
+  const hideErrorMessage = function() {
+      const $errorContainer = $('.error-container');
+      $errorContainer.slideUp();
+  };
+
+  const isTweetValid = function(tweetText) {
+      hideErrorMessage();
+
+      if (!tweetText) {
+          displayErrorMessage("Tweet cannot be empty!");
+          return false;
+      }
+      if (tweetText.length > 140) {
+          displayErrorMessage("Tweet cannot exceed 140 characters!");
+          return false;
+      }
+      return true;
+  };
+
+  loadTweets(); 
+
+  $('form').on('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      const tweetText = $('#tweet-text').val().trim();
+      
+      // Validate the tweet before sending
+      if (!isTweetValid(tweetText)) {
+          return;
+      }
+
+      // Post the tweet using AJAX
+      $.ajax({
+          url: '/tweets',
+          method: 'POST',
+          data: $(this).serialize(),
+          success: function() {
+              loadTweets(); 
+              $('#tweet-text').val(''); 
+              $('.counter').text(140); 
+          }
+      });
   });
 });
-
-
-
-const renderTweets = (tweets) => {
-  // loops through tweets
-  for (const tweet of tweets) {
-      const $tweet = createTweetElement(tweet);
-      $('.tweet-container').prepend($tweet);
-  }
-};
