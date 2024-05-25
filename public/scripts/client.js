@@ -138,8 +138,11 @@ $(document).ready(function() {
         url: '/tweets',
         method: 'POST',
         data: $(this).serialize(),
-        success: function(newTweet) {
-            renderTweet(newTweet); // Render the newly created tweet
+        success: function() {
+            // Clear the tweet container
+            $('.tweet-container').empty();
+            // Load tweets again to display the newly posted tweet
+            loadTweets();
             $('#tweet-text').val(''); // Clear the text area
             $('.counter').text(140); // Reset the character counter
         }
