@@ -48,48 +48,7 @@
     </header>
 
     <!-- Page-specific (main) content here -->
-    <main class="container">
-        <!-- New tweet --> 
-        <section class="new-tweet">
-            <h2>Compose Tweet</h2>
-            <form action="/tweets/" method="post">
-                <label for="tweet-text">What are you humming about?</label>
-                <textarea name="text" id="tweet-text"></textarea>
-                <div>
-                    <button type="submit">Tweet</button>
-                    <output name="counter" class="counter" for="tweet-text">140</output>
-                </div>
-            </form>
-        </section> 
-
-        <!-- Tweet container -->
-        <section class="tweet-container">
-          <!-- Individual tweet -->
-          <article class="tweet">
-              <!-- Tweet header -->
-              <header>
-                  <img src="/images/profile-picture.jpg" alt="Profile Picture" class="profile-picture">
-                  <h3>User Name</h3>
-                  <span class="username">@username</span>
-              </header>
-
-              <!-- Tweet content -->
-              <section class="tweet-text">
-                  <p>This is the content of the tweet.</p>
-              </section>
-
-              <!-- Tweet footer with icons -->
-              <footer>
-                  <div class="actions">
-                      <span><i class="fa-solid fa-flag"></i></span>
-                      <span><i class="fa-solid fa-retweet"></i></span>
-                      <span><i class="fa-regular fa-heart"></i></span>
-                  </div>
-                  <span class="timestamp">5 minutes ago</span>
-              </footer>
-          </article>
-          <!-- End of individual tweet -->
-      </section>     
+    <main class="container">  
   </main>
 </body>
 </html>
