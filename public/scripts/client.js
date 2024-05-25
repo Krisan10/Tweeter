@@ -76,13 +76,10 @@ $(document).ready(function() {
       return $tweet;
   };
 
-  const renderTweets = function(tweets) {
-      $('.tweet-container').empty();
-      for (const tweet of tweets) {
-          const $tweet = createTweetElement(tweet);
-          $('.tweet-container').prepend($tweet);
-      }
-  };
+  const renderTweet = function(tweet) {
+    const $tweet = createTweetElement(tweet);
+    $('.tweet-container').prepend($tweet); // Prepend the new tweet to the tweet container
+};  
 
   const escape = function(str) {
       let div = document.createElement("div");
@@ -127,25 +124,25 @@ $(document).ready(function() {
   loadTweets(); 
 
   $('form').on('submit', function(event) {
-      event.preventDefault(); // Prevent the default form submission
+    event.preventDefault(); // Prevent the default form submission
 
-      const tweetText = $('#tweet-text').val().trim();
-      
-      // Validate the tweet before sending
-      if (!isTweetValid(tweetText)) {
-          return;
-      }
+    const tweetText = $('#tweet-text').val().trim();
+    
+    // Validate the tweet before sending
+    if (!isTweetValid(tweetText)) {
+        return;
+    }
 
-      // Post the tweet using AJAX
-      $.ajax({
-          url: '/tweets',
-          method: 'POST',
-          data: $(this).serialize(),
-          success: function() {
-              loadTweets(); 
-              $('#tweet-text').val(''); 
-              $('.counter').text(140); 
-          }
-      });
-  });
+    // Post the tweet using AJAX
+    $.ajax({
+        url: '/tweets',
+        method: 'POST',
+        data: $(this).serialize(),
+        success: function(newTweet) {
+            renderTweet(newTweet); // Render the newly created tweet
+            $('#tweet-text').val(''); // Clear the text area
+            $('.counter').text(140); // Reset the character counter
+        }
+    });
+});
 });
