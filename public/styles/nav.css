@@ -1,16 +1,18 @@
-/* public/styles/nav.css */
+/*Navagation bar*/
 
 nav {
+  display: flex; 
   height: 120px;
-  width: 100%;
+  width: 100vw;
   background-color: #4056A1;
   color: #FFFFFF;
   padding: 0 1.5em;
   box-sizing: border-box;
-  display: flex;
   align-items: center; /* Center items vertically */
   justify-content: space-between; /* Space items apart */
   position: fixed;
+  top: 0;
+  z-index: 10;
 }
 
 .nav-title {
@@ -36,3 +38,4 @@ nav {
 .fa-angles-down {
   margin-top: 0.5em; /* Optional: adjust spacing between text and icon */
 }
+
