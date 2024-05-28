@@ -21,7 +21,7 @@ form textarea {
 }
 
 .new-tweet button {
-  background-color: #1DA1F2; /* Twitter-like blue */
+  background-color: #1DA1F2; 
   color: white;
   border: none;
   padding: 10px 20px;
