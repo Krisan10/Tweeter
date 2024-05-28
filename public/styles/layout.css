@@ -30,9 +30,38 @@ body {
   font-family: 'Bungee', sans-serif; 
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
 .container {
   width: 100%;
   margin: 0 auto;
   background-color: inherit;
   position: relative;
 }
+
+@media(min-width: 1024px){
+  body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  body .fullscreen{
+    margin-top: 100px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  body .container {
+    float: right;
+    width: 50%;
+    clear: right;
+  }
+}
+
