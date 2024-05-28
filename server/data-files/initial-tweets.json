@@ -1,24 +1,24 @@
 [
   {
     "user": {
-      "name": "Newton",
+      "name": "Mario",
       "avatars": "https://i.imgur.com/73hZDYK.png",
       "handle": "@SirIsaac"
     },
     "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
+      "text": "It's a me, Mario! Wahoo!"
     },
-    "created_at": 1716686551055
+    "created_at": 1716690372543
   },
   {
     "user": {
-      "name": "Descartes",
+      "name": "Naruto Uzumaki",
       "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
+      "handle": "@ninetailedfox"
     },
     "content": {
-      "text": "Je pense, donc je suis"
+      "text": "Believe it!"
     },
-    "created_at": 1716772951055
+    "created_at": 1716776772543
   }
 ]
